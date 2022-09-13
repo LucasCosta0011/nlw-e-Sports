@@ -102,3 +102,9 @@ aplicação da imagem
 ```
 class="bg-[#121214] bg-fundo bg-cover bg-no-repeat"
 ```
+
+com a extensão R Component
+
+``` rnso ```   cria um esqueleto para componente de estilo rapidamente
+
+``` rnso ``` cria um esqueleto para componente rapidamente
