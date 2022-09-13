@@ -76,3 +76,29 @@ Excutar como adm
 Set-ExecutionPolicy RemoteSigned // Dando permissão
 
 Set-ExecutionPolicy Restricted // Removendo permissão
+
+npm install -D tailwindcss postcss autoprefixer // instalando tailwindcss
+
+npx tailwindcss init -p // -p cria o arquivo postcss.config.cjs um "pre-processador para css"
+
+dentro de tailwind.config.cjs em content ./src/**/*.tsx // todas as pastas e todos os arquivos com extensão tsx
+
+colocando imagens no projeto com tailwind
+
+a imagem precisa estar em /public
+
+```
+theme: {
+    extend: {
+      backgroundImage: {
+        fundo: "url('/Fundo.png')"
+      }
+    },
+  },
+```
+
+aplicação da imagem
+
+```
+class="bg-[#121214] bg-fundo bg-cover bg-no-repeat"
+```
