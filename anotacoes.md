@@ -107,4 +107,33 @@ com a extensão R Component
 
 ``` rnso ```   cria um esqueleto para componente de estilo rapidamente
 
-``` rnso ``` cria um esqueleto para componente rapidamente
+``` rnbc ``` cria um esqueleto para componente rapidamente
+
+instalando fonts no app
+
+parar a aplicação quando for rodar um comando expo, pois ele modifica códigos nativos
+
+``` expo install expo-font @expo-google-fonts/inter ```
+
+garante que aplicação será exibida na área segura da tela, detalhes físicos do aparelho
+
+``` expo install react-native-safe-area-context ```
+
+efeito de gradient
+
+``` expo install expo-linear-gradient ```
+
+passando props sem declarar na interface
+
+``` interface Props extends ViewProps{
+  title: string;
+  subtitle: string;
+}
+
+export function Heading({title, subtitle, ...rest}:Props) {
+  return (
+    <View style={styles.container} {...rest}>
+
+    </View>
+  );
+} ```
