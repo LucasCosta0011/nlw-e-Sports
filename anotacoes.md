@@ -125,7 +125,8 @@ efeito de gradient
 
 passando props sem declarar na interface
 
-``` interface Props extends ViewProps{
+``` 
+interface Props extends ViewProps{
   title: string;
   subtitle: string;
 }
@@ -136,4 +137,123 @@ export function Heading({title, subtitle, ...rest}:Props) {
 
     </View>
   );
-} ```
+} 
+```
+### Back-end
+
+### Entidades
+
+### Game
+
+id
+
+title
+
+bannerUrl
+
+CDN (Amazon S3) (Content Delivery Network)
+
+### Ad
+
+id
+
+id gameId
+
+name
+
+yearsPlaying
+
+discord
+
+weekDays
+
+hoursStart
+
+hoursEnd
+
+useVoiceChannel
+
+createAt
+
+### Dica
+
+1:30h -> 90 min
+
+R$ 189,14 -> 189,14 * 100 -> 18914
+
+Datas (fuso horário / formatos diferentes i18n)
+
+Pontos flutuantes
+
+
+### Casos de usos
+
+- Listagem de games com contagens de anúncios
+- Criação de um novo anúncio
+- Buscar discord pelo ID do anúncio
+
+### Métodos http / API RESTful / HTTP Codes -> qual o tipo de responsa q está retornando do backend
+
+get - busca dados, post - cria dados, put - edita dados, patch - editar uma info específica (S/N), delete, head, options
+
+[Status Code](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjbybLLtJT6AhVHRLgEHSQ_B5cQFnoECAsQAQ&url=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FHTTP%2FStatus&usg=AOvVaw2pSlgOW81Ahg7C8tS8pF0W)
+
+### tipos de parâmetros
+
+query: Ex: page=2 | são passados atravéz de ? na url. Usamos para persistir estados, por exemlos, filtros, paginação etc.
+route: não são nomeados, por exemplo, um id de uma consulta. Identidicador único.
+body: Envia várias info atravéz de uma única requisição. Não fica na url.
+
+colocando o ORM prisma nas dependências
+
+``` npm install -D prisma ```
+
+``` npx prisma init -h``` mostra as opções disponíveis para conexão (doc)
+
+``` npx prisma init --datasource-provider SQLite ``` cria um .env e uma pasta prisma com a config de conexão com o db
+
+``` npx prisma migrate dev ``` cria um controle de alterações do db
+
+``` npx prisma studio ``` cria uma gui do db
+
+``` id String @id ``` geralmente os ids são do tipo string para evitar brecha de segurança pois os números são gerados de forma sequêncial. Exemplos de algoritmos usando tipo int ( uuid, cuid)
+
+instalando package prisma client de conexão
+
+``` npm i @prisma/client ``` 
+
+criando a conexão e mostra todas as queries no console
+
+``` 
+    - import { PrismaClient } from '@prisma/client';
+    - const prisma = new PrismaClient({
+        log: ['query']
+      });
+```
+
+cria um arquivo dentro de node_modules/.prisma/client/index.d.ts que só tem definições de tipos do typescript
+
+cria baseado no schema/banco tipos do typescript
+
+cria todos os métodos q podemos executar referênte aos campos criados
+
+``` npx prisma generate ```
+
+exemplo de método assíncrono  com typescript
+
+await aguarda a instrução finalizar para continar com o código
+
+```
+app.get("/games", async (request, response) => {
+  const games = await prisma.game.findMany({
+    
+  })
+  return response.json([]);
+})
+```
+
+### Atenção
+
+no package.json precisamos adicionar uma nova flag para não ter q ficar reiniciar o servidor na mão.
+essa flag permite o tsnd criar e fechar a conexão com db automaticamente
+"dev": "tsnd ```  --exit-child  ``` src/server.ts"
