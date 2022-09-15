@@ -190,6 +190,7 @@ Pontos flutuantes
 
 - Listagem de games com contagens de anúncios
 - Criação de um novo anúncio
+- Listagem de anúncios por game
 - Buscar discord pelo ID do anúncio
 
 ### Métodos http / API RESTful / HTTP Codes -> qual o tipo de responsa q está retornando do backend
@@ -280,3 +281,54 @@ app.use(cors({
 }))
 ```
 
+react tem como propósito ser reativo para uso tem o useState
+
+exemplo:
+
+parâmetros: nome do evento, muda o valor
+
+``` 
+const [hasUserClickedOnButton, setHasUserClickedOnButton] = useState(false)
+
+function handleClickButton(){
+    setHasUserClickedOnButton(!hasUserClickedOnButton)
+}
+
+// todo o código aqui é executado mesmo q não mude o estado causando problema de performace
+
+// para evitar isso temos o useEffect
+
+```
+
+dentro do jsx
+
+``` 
+<button onClick={handleClickButton}>Clique aqui</button>
+```
+
+usando useEffect
+
+parâmetros: efeito colateral (callback),  quando vai ser executado
+
+se o segundo argumento for vazio será executado uma única vez independente de quantas  vezes o código for renderizado
+
+exemplo:
+
+``` 
+useEffect(() => {
+    console.log(hasUserClickedOnButton) -> 'clicou'
+  }, [setHasUserClickedOnButton])
+
+```
+
+a função ``` map ``` do javascript percorre um array e retorna algo 
+
+toda vez que percorremos um array com o map precisamos declarar uma key
+
+exemplo:
+
+``` key={game.id} ```
+
+criando componentes acessiveis com api
+
+``` npm install @radix-ui/react-dialog ```

@@ -28,7 +28,7 @@ app.get("/games", async (request, response) => {
 })
 
 app.post("/games/:id/ads", async (request, response) => {
-  const gameId = request.params.id;
+  const gameId: any = request.params.id;
   const body: any = request.body;
 
   // validação - zod javascript
