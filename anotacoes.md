@@ -257,3 +257,26 @@ app.get("/games", async (request, response) => {
 no package.json precisamos adicionar uma nova flag para não ter q ficar reiniciar o servidor na mão.
 essa flag permite o tsnd criar e fechar a conexão com db automaticamente
 "dev": "tsnd ```  --exit-child  ``` src/server.ts"
+
+instalando cors
+
+projete a aplicação contra front-end q não são permitidos para nosso back-end
+
+quais endereços front-end queremos permitir que acessem o backend
+
+se não for configurado nenhum front vai conseguir acessar 
+
+``` npm i cors ```
+
+``` npm i @types/cors -D ``` suporte para typescript
+
+configuração para ambiente em produção
+
+apenas esse domínio consegue acessar o backend
+
+```
+app.use(cors({
+  origin:  'url',
+}))
+```
+
