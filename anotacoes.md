@@ -72,6 +72,7 @@ Excutar como adm
 ``` npm i -g expo-cli ```
 
 ``` expo init mobile ``` // inicia o projeto mobile
+``` expo start ``` // roda o app
 
 Set-ExecutionPolicy RemoteSigned // Dando permissão
 
@@ -332,3 +333,23 @@ exemplo:
 criando componentes acessiveis com api
 
 ``` npm install @radix-ui/react-dialog ```
+
+instalando react navagation 
+
+``` npm install @react-navigation/native ```
+
+``` expo install react-native-screens ``` // animação
+
+``` npm install @react-navigation/native-stack ``` // define uma estratégia de navegação específica
+
+chamando função sem parâmetro
+``` onPress={handleOpenGame}  ```
+
+chamando função com parâmetro
+
+``` onPress={() => handleOpenGame(item)} ```
+
+no react native não usamos unidades de medidas para estilos para que o próprio react native pegue a unidade de medida de cada tipo de dispositivo
+
+
+commit consumingo api na web do server 1:53
