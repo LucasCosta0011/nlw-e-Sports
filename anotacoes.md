@@ -354,3 +354,21 @@ no react native não usamos unidades de medidas para estilos para que o próprio
 ``` npm install --save phosphor-react-native ```
 
 ``` expo install react-native-svg ```
+
+personalizando checkbox
+
+``` npm install @radix-ui/react-checkbox ```
+
+desafio select radix
+
+``` npm install @radix-ui/react-select ```
+
+``` npm install @radix-ui/react-toggle-group ```
+
+afirma que o target vai ser um form
+
+``` const formData = new FormData(event.target as HTMLFormElement) ```
+
+usando axios para fazer requisições
+
+```  npm i axios ```
