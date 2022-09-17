@@ -351,5 +351,6 @@ chamando função com parâmetro
 
 no react native não usamos unidades de medidas para estilos para que o próprio react native pegue a unidade de medida de cada tipo de dispositivo
 
+``` npm install --save phosphor-react-native ```
 
-commit consumingo api na web do server 1:53
+``` expo install react-native-svg ```
