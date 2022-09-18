@@ -9,18 +9,27 @@ import { useRoute, useNavigation } from '@react-navigation/native';
 
 import logoImg from '../../assets/logo-nlw-esports.png';
 import { Background } from '../../components/Background';
-
-import { styles } from './styles';
-import { THEME } from '../../theme';
+import { DuoMatch } from '../../components/DuoMatch';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard';
 
+import { styles } from './styles';
+import { THEME } from '../../theme';
+
+
 export function Game() {
 
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
   const [duo, setDuo] = useState<DuoCardProps[]>([]);
   const navigation = useNavigation();
   const route = useRoute();
   const game = route.params as GameParams;
+
+  async function getDiscordUser(adsId: string){
+    fetch(`http://192.168.0.103:3333/ads/${adsId}/discord`)
+    .then(response => response.json())
+    .then(data => setDiscordDuoSelected(data.discord));
+  }
 
   function handleGoBack(){
     navigation.goBack()
@@ -69,7 +78,7 @@ export function Game() {
           renderItem={({item}) => (
             <DuoCard 
               data={item}
-              onConnect={() => {}}
+              onConnect={() => { getDiscordUser(item.id) }}
             />
           )}
           horizontal
@@ -81,6 +90,12 @@ export function Game() {
               Não há anúncios publicados ainda.
             </Text>
           )}
+        />
+
+        <DuoMatch 
+          onClose={() => setDiscordDuoSelected('')}
+          visible={discordDuoSelected.length > 0}
+          discord={discordDuoSelected}
         />
       </SafeAreaView>
     </Background>

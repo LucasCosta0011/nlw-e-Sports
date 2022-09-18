@@ -44,6 +44,7 @@ export function CreateAdModel() {
     const data = Object.fromEntries(formData)
 
     // Validação
+    if(data.name === ""){ return; }
 
     try{
       axios.post(`http://localhost:3333/games/${data.game}/ads`, {

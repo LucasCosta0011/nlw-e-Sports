@@ -372,3 +372,27 @@ afirma que o target vai ser um form
 usando axios para fazer requisições
 
 ```  npm i axios ```
+
+copia o texto para área de tranferência do usuário
+
+``` expo install expo-clipboard ```
+
+
+carregamento ActivityIndicator não está funcionando no modal
+
+mandando push notification
+
+``` expo install expo-notifications ```
+
+``` expo install expo-modules-core ```
+
+
+para usar o serviço de notificação do expo precisamos estar logados
+
+criar uma conta no expo
+
+``` expo login ```
+
+Mandar uma notification para um usuário que gosta de um jogo específico atravéz do backend
+
+[push notification](https://expo.dev/notifications)
